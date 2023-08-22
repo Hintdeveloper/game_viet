@@ -2,16 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerFire : MonoBehaviour
+public class EnemyFire : MonoBehaviour
 {
     public GameObject bulletPrefab;
     public Transform bulletSpawnPoint;
     public float bulletSpeed = 10f;
     public float delay = 3f;
-    public float spawnOffset = 0.5f; // Offset distance in front of the player
-
+    public float spawnOffset = 0.5f;
     private float timer = 0f;
-    // Start is called before the first frame update
     void Start()
     {
         
