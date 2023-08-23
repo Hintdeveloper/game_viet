@@ -21,4 +21,9 @@ public class PlayerHealthBar : MonoBehaviour
     {
         healthBar.fillAmount = hp / maxHp;
     }
+
+    public void ReduceHP(float damage)
+    {
+
+    }
 }
