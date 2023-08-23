@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireBulet : MonoBehaviour
+public class FireRocket : MonoBehaviour
 {
-
     private Renderer bulletRenderer;
-    public float damege = 20;
+    public float damege = 100;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,11 +17,9 @@ public class FireBulet : MonoBehaviour
     {
         if (!IsVisibleOnScreen())
         {
-            // Destroy the bullet game object when it goes even slightly out of the camera bounds
             Destroy(gameObject);
         }
     }
-
     private bool IsVisibleOnScreen()
     {
         Plane[] planes = GeometryUtility.CalculateFrustumPlanes(Camera.main);
@@ -34,25 +31,16 @@ public class FireBulet : MonoBehaviour
 
         return false;
     }
-    //private void //OnBecameInvisible()
-    //{
-    //    if (!bulletRenderer.isVisible)
-    //    {
-    //        // Destroy the bullet game object when it goes out of bounds of the camera
-    //        Destroy(gameObject);
-    //    }
-    //}
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag=="Enemy")
+        if (collision.gameObject.tag == "Enemy")
         {
-            collision.gameObject.GetComponent<EnemyHealthBar>().ReduceHP(damege);
+            collision.gameObject.GetComponent<Enemy>().ReduceHP(damege);
             Destroy(gameObject);
         }
         if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<PlayerHealthBar>().ReduceHP(damege);
+            collision.gameObject.GetComponent<Player>().ReduceHP(damege);
             Destroy(gameObject);
         }
     }
