@@ -47,12 +47,12 @@ public class FireBulet : MonoBehaviour
     {
         if (collision.gameObject.tag=="Enemy")
         {
-            collision.gameObject.GetComponent<Enemy>().ReduceHP(damege);
+            collision.gameObject.GetComponent<EnemyHealthBar>().ReduceHP(damege);
             Destroy(gameObject);
         }
         if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<Player>().ReduceHP(damege);
+            collision.gameObject.GetComponent<PlayerHealthBar>().ReduceHP(damege);
             Destroy(gameObject);
         }
     }
